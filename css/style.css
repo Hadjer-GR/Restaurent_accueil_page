@@ -1,0 +1,316 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+:root {
+  --color_text_menu: #000;
+  --color_text_menu_rgb: 0, 0, 0;
+  --color_back_menu: #fff;
+  --color_back_menu_rgb: 255, 255, 255;
+  --color_focus_menu: #8ed444;
+  --color_focus_menu_rgb: 142, 212, 68;
+  --color_primary: #8ed444;
+  --color_primary_rgb: 142, 212, 68;
+  --color_text_on_primary: #fff;
+  --color_text_on_primary_rgb: 255, 255, 255;
+  --color_secondary: #8ed444;
+  --color_secondary_rgb: 142, 212, 68;
+  --color_text_on_secondary: #fff;
+  --color_text_on_secondary_rgb: 255, 255, 255;
+}
+html {
+  font-size: 14px;
+  font-family: "Source Sans Pro", sans-serif;
+}
+body {
+  background-color: #ffff;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  overflow-x: hidden;
+}
+/* design a scrollbar   */
+/*
+*
+*
+*
+*
+*/
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 5px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.25);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: #babdba;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #babdba;
+}
+/* design header page  */
+.nav {
+  position: fixed;
+
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 10%;
+  z-index: 100;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: var(--color_back_menu);
+  padding-left: 20px;
+}
+.nav .logo {
+  background-image: url(/img/logoRestaurent.jpg);
+  background-position: center;
+  background-size: cover;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.nav .logo:hover {
+  transform: scale(1.1);
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.nav .navbar-right,
+.nav .navbar-left {
+  list-style-type: none;
+  /* border: 2px solid red; */
+  height: auto;
+  flex-basis: 30%;
+  margin-right: 20px;
+}
+.nav .navbar-right {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.nav .navbar-right li,
+.nav .navbar-left li {
+  display: inline-block;
+}
+.nav ul li a,
+.headermobile li a {
+  text-decoration: none;
+  color: var(--color_text_menu);
+  padding: 15px 10px;
+  font-size: 1.2em;
+}
+.nav .navbar-right .nav-menu {
+  display: none;
+}
+
+.nav .navbar-right li a:hover,
+.nav .navbar-left li a:hover,
+.headermobile li a:hover {
+  color: var(--color_focus_menu);
+}
+.nav .navbar-right li {
+  padding: 8px 5px;
+}
+.nav .navbar-right .shopicon {
+  font-size: 1.3em;
+}
+
+.nav .navbar-right .shopmenue,
+.headermobile .shopmenue {
+  background-color: var(--color_primary);
+  color: var(--color_back_menu);
+  border-radius: 5px;
+  font-size: 1.2em;
+  padding: 12px 15px !important;
+}
+.nav .navbar-right .shopmenue label,
+.headermobile .shopmenue label {
+  cursor: pointer;
+}
+.nav .navbar-right .shopmenue:hover,
+.headermobile .shopmenue:hover {
+  transform: scale(0.92);
+  transition: 0.5s;
+}
+/* design Drop meneu */
+.nav .navbar-right .shopmenue input,
+.headermobile .shopmenue input {
+  display: none;
+}
+.nav .dropmenu {
+  position: absolute;
+  /* border-top: 1px solid rgba(0, 0, 0, 0.1); */
+  left: 70%;
+  top: 90%;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgb(0 0 0 / 18%);
+  transform: all 150ms linear;
+  height: auto;
+  display: none;
+}
+.nav .dropmenu ul,
+.mobiledropmenu ul {
+  position: relative;
+  list-style-type: none;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.nav .dropmenu ul li,
+.mobiledropmenu ul li {
+  padding: 12px 10px;
+  font-size: 1em;
+  border-radius: 5px;
+}
+
+.nav .dropmenu ul li:hover,
+.mobiledropmenu ul li:hover {
+  background-color: var(--color_focus_menu);
+  transition: 0.2s;
+  box-shadow: 2px 2px 6px rgb(0 0 0 / 18%), -2px -2px 6px rgb(0 0 0 / 18%);
+}
+.toggle_DropMenue {
+  display: block !important;
+  z-index: 4;
+}
+
+/* design the header in mobile Screen  */
+.home-content {
+  position: relative;
+  top: 9%;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.header {
+  position: relative;
+  max-height: 500px;
+  width: 100%;
+}
+.headermobile {
+  position: relative;
+  text-align: center;
+  width: 90% !important;
+  font-size: 1.4em;
+  font-weight: 400;
+  width: 100%;
+  max-height: 0px;
+  overflow-y: scroll;
+  visibility: hidden;
+  opacity: 0;
+  margin-top: 0 !important;
+  transition: all 0.4s;
+  background-color: var(--color_back_menu);
+}
+.headermobile ul {
+  position: relative;
+  margin-left: 10px;
+  margin-right: 10px;
+  list-style-type: none;
+}
+.headermobile ul li {
+  padding: 20px 0px 20px 0px !important;
+}
+.headermobile ul li a {
+  padding: 15px 10px;
+}
+
+.shopmenue label {
+  padding: 20px 10px !important;
+  border-radius: 5px;
+}
+.headermobile .mobiledropmenu {
+  position: relative !important;
+  color: var(--color_text_menu);
+  margin-top: 5px;
+  font-size: 1em;
+  display: none;
+  transition: all 0.2s linear;
+  background-color: #fff;
+  background-color: var(--color_back_menu) !important;
+}
+.mobiledropmenu ul li a:hover {
+  color: var(--color_text_menu) !important;
+}
+/* design home picture */
+
+.home-picture .picture {
+  position: relative;
+  background-image: url(/img/logoRestaurent.jpg);
+  height: 100%;
+  height: 600px;
+  width: 100%;
+  transition: 0.4s;
+  background-size: cover;
+  background-position: center;
+  z-index: -2;
+}
+.home-picture .coverpicture {
+  position: relative !important;
+  background-color: rgba(0, 0, 0, 0.25) !important;
+  height: 600px;
+  width: 100vw;
+}
+.home-picture .coverpicture .text {
+  position: absolute;
+  top: 32%;
+  left: 10%;
+  padding: 15px 10px;
+  padding-left: 3%;
+  min-height: 45%;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  /* background-color: rgba(255, 255, 255, 0.664); */
+  background-color: rgba(215, 217, 217, 0.37);
+}
+.home-picture .coverpicture .text h1 {
+  font-family: "poppins", sans-serif;
+  font-size: 3em;
+  font-weight: 600;
+  color: #030403;
+  line-height: 70px;
+}
+.home-picture .coverpicture .text p {
+  font-size: 20px;
+  font-family: "poppins", sans-serif;
+  color: #030403;
+  margin-top: 20px;
+  margin-bottom: 25px;
+}
+.home-picture .coverpicture .text a {
+  font-size: 16px !important;
+  padding: 13px 51px;
+  border-radius: 3px;
+  text-decoration: none;
+  display: inline-block;
+  width: 250px;
+  color: var(--color_back_menu);
+  background-color: var(--color_primary);
+  letter-spacing: 1px;
+  cursor: pointer;
+  font-family: "avenirRegular", sans-serif;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  margin-bottom: 30px;
+}
+.home-picture .coverpicture .text a:hover {
+  transform: scale(1.1);
+  box-shadow: 4px 0px 5px rgb(0 0 0 / 18%);
+  transition: 0.2s;
+}

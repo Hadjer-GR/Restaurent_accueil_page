@@ -1,0 +1,45 @@
+/* design nav */
+
+.nav .navbar-left,
+.nav .navbar-right .li-mobile {
+  display: none !important;
+}
+
+.nav .navbar-right .nav-menu {
+  display: block !important;
+}
+.nav .logo {
+  width: 50px !important;
+  height: 50px !important;
+  margin-left: 30%;
+}
+.nav ul {
+  flex-basis: 50% !important;
+}
+
+.nav .navbar-right .nav-menu {
+  font-size: 1.4em;
+}
+.nav .navbar-right .nav-menu:hover {
+  transform: scale(1.1) !important;
+  transition: 0.2s;
+}
+
+.mobiledropmeneu {
+  max-height: 500px !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transition: all 150ms linear;
+}
+.mobiledropsmallmeneu {
+  display: block !important;
+}
+.home-picture .coverpicture .text {
+  top: 35% !important;
+  padding: 15px 10px;
+  width: 95% !important;
+  left: 2% !important;
+}
+.home-picture .coverpicture .text p {
+  margin-right: 10px !important;
+}
